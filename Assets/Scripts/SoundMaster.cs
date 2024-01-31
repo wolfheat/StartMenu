@@ -74,9 +74,13 @@ public class SoundMaster : MonoBehaviour
 
     public void PlaySound(SoundName name)
     {
-        Debug.Log("Play Sound: "+name+" at:" + Time.realtimeSinceStartup);
+        //Debug.Log("Play Sound: "+name+" at:" + Time.realtimeSinceStartup);
         if (soundsDictionary.ContainsKey(name))
+        {
+            if (soundsDictionary[name].audioSource.isPlaying && !soundsDictionary[name].loop)
+                return;
             soundsDictionary[name].audioSource.Play();
+        }
         else
             Debug.LogWarning("No clip named "+name+" in dictionary.");
 
@@ -84,7 +88,7 @@ public class SoundMaster : MonoBehaviour
 
     public void UpdateVolume(float masterVolume, float musicVolume,float sfxVolume)
     {
-        Debug.Log("Changing volumes ["+ masterVolume + ","+musicVolume+","+sfxVolume+"]");
+        //Debug.Log("Changing volumes ["+ masterVolume + ","+musicVolume+","+sfxVolume+"]");
         
         // Convert to dB
         mixer.SetFloat("Volume", Mathf.Log10(masterVolume) * 20);

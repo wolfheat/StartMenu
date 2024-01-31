@@ -16,7 +16,7 @@ public class MenuButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //SoundMaster.Instance.PlaySound(SoundName.MenuOver);
+        SoundMaster.Instance.PlaySound(SoundName.MenuOver);
     }
 
     public void OnPointerExit(PointerEventData eventData)
