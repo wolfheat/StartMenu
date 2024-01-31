@@ -22,8 +22,10 @@ public class StartMenuController : MonoBehaviour
 
     public void SetNextMenu(int nextMenuindex)
     {
+        Debug.Log("Set Next: " + Time.realtimeSinceStartup);
         if (menuState == MenuState.Transitioning) return;
         nextMenu = (MenuOption)nextMenuindex;
+        SoundMaster.Instance.PlaySound(SoundName.MenuClick);
         CloseCurrent();
     }
 
@@ -78,6 +80,7 @@ public class StartMenuController : MonoBehaviour
     
     private void InitiateStartMenu()
     {
+
         startMenu.gameObject.SetActive(true);
         startMenu.animator.CrossFade("Initiate",0.1f);
         currentOption = startMenu;
