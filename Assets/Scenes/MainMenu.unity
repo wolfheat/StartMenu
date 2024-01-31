@@ -674,8 +674,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -810,8 +810,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1261,6 +1261,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1747935019}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &559147166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8414364267114804032, guid: 3c7a59dd5855ea74d8207c8070228154,
+    type: 3}
+  m_PrefabInstance: {fileID: 1512833903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &637486518 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7416124518164143275, guid: 3c7a59dd5855ea74d8207c8070228154,
@@ -2038,8 +2050,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2106,6 +2118,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960329320}
   m_CullTransparentMesh: 1
+--- !u!114 &1079307834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8414364267114804032, guid: 3c7a59dd5855ea74d8207c8070228154,
+    type: 3}
+  m_PrefabInstance: {fileID: 3510916402346052408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1167895596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,8 +2725,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2837,8 +2861,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3466,6 +3490,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712147694}
   m_CullTransparentMesh: 1
+--- !u!114 &1720653600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8414364267114804032, guid: 3c7a59dd5855ea74d8207c8070228154,
+    type: 3}
+  m_PrefabInstance: {fileID: 1747935019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1747935019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4584,7 +4620,7 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   - name: 3
-    clip: {fileID: 8300000, guid: e1978620528824648b6e501da37ecdca, type: 3}
+    clip: {fileID: 8300000, guid: 33736b54cb78c9f48b9af80628f9f1e4, type: 3}
     volume: 0.181
     pitch: 1
     loop: 0
@@ -4679,8 +4715,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292597712
-  m_fontColor: {r: 0.81394625, g: 0.84165066, b: 0.8584906, a: 1}
+    rgba: 4291611852
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5379,6 +5415,9 @@ MonoBehaviour:
   master: {fileID: 1696421976}
   music: {fileID: 1703923179}
   sfx: {fileID: 150257388}
+  masterPercent: {fileID: 1079307834}
+  musicPercent: {fileID: 1720653600}
+  sfxPercent: {fileID: 559147166}
 --- !u!222 &7787740559099430497
 CanvasRenderer:
   m_ObjectHideFlags: 0
