@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct AnimationRequest
@@ -9,111 +7,101 @@ public struct AnimationRequest
     public string animationName;
     public bool disable;
 }
+public enum MenuOption {MainMenu, Settings, Credits, StartGame, Exit}
 
 public class StartMenuController : MonoBehaviour
 {
     public static StartMenuController Instance { get; private set; }
     public MenuState menuState = MenuState.Idle;
-    [SerializeField] GameObject credits;
-    [SerializeField] GameObject settings;
-    private Animator animator;
+    [SerializeField] StartMenuPanel credits;
+    [SerializeField] StartMenuPanel settings;
+    [SerializeField] StartMenuPanel startMenu;
+    [SerializeField] private MenuOption nextMenu;
 
-    [SerializeField] Animator[] otherAnimators;
-    enum Menu { Main,Settings, Credits}
+    private StartMenuPanel currentOption;    
 
-    [SerializeField] Animator[] buttonAnimators;
+    public void SetNextMenu(int nextMenuindex)
+    {
+        if (menuState == MenuState.Transitioning) return;
+        nextMenu = (MenuOption)nextMenuindex;
+        CloseCurrent();
+    }
 
-    private Animator nextRequest;
+    private void CloseCurrent()
+    {
+        currentOption.animator.CrossFade("Close", 0.1f);
+        menuState = MenuState.Transitioning;
+    }
 
     private void Start()
     {
         if (Instance != null) Destroy(gameObject);
         Instance = this;
 
-        animator = GetComponent<Animator>();
+        settings.gameObject.SetActive(false);
+        credits.gameObject.SetActive(false);
 
         InitiateStartMenu();
     }
 
-    public void ShowMenu(int menu)
+    public void ShowMenu(MenuOption menu)
     {
-        if (menuState == MenuState.Transitioning) return;
-
-        MenuNames picked = (MenuNames)menu;
-        switch (picked)
+        switch (menu)
         {
-            case MenuNames.StartGame:
-                StartGame();
+            case MenuOption.MainMenu:
+                InitiateStartMenu();
                 break;
-            case MenuNames.Settings:
+            case MenuOption.Settings:
                 ShowSettings();
                 break;
-            case MenuNames.Credits:
+            case MenuOption.Credits:
                 ShowCredits();
                 break;
-            case MenuNames.CloseMenuOption:
-                ShowCredits();
+            case MenuOption.StartGame:
+                StartGame();
                 break;
-            case MenuNames.Exit:
+            case MenuOption.Exit:
                 ExitGame();
                 break;
         }
     }
 
+    public void AnimationComplete()
+    {
+        currentOption.gameObject.SetActive(false);        
+        ShowMenu(nextMenu);
+
+        // Maybe to early to enable this
+        menuState = MenuState.Idle;
+
+    }
+    
     private void InitiateStartMenu()
     {
-        animator.CrossFade("InitiateStartMenu",0.1f);
-    }
-
-    private IEnumerator AnimateAllButtons()
-    {
-        while (animatorQueue.Count > 0)
-        {
-            AnimateNextButton();
-            yield return new WaitForSeconds(0.1f); 
-        }
-    }
-
-    public void MenuAnimationComplete()
-    {
-        Debug.Log("MenuAnimation complete");
-        nextRequest.CrossFade("Show", 0.1f);
-    }
-
-    public void ButtonAnimationComplete()
-    {
-        Debug.Log("Button Animation complete");
-    }
-    private Queue<Animator> animatorQueue = new Queue<Animator>();
-    private void AnimateNextButton()
-    {
-        Debug.Log("Animating next button: "+animatorQueue.Count);
-        if(animatorQueue.Count>0)
-            animatorQueue.Dequeue().CrossFade("SpawnButton",0.1f);
-        else
-            menuState = MenuState.Idle;
+        startMenu.gameObject.SetActive(true);
+        startMenu.animator.CrossFade("Initiate",0.1f);
+        currentOption = startMenu;
     }
 
     private void StartGame()
     {
         Debug.Log("Start Game Pressed");
-        animator.CrossFade("StartGame",0.1f);
     }
 
     private void ShowSettings()
     {
         Debug.Log("Settings Pressed");
         menuState = MenuState.Transitioning;
-        otherAnimators[(int)Menu.Main].CrossFade("Hide",0.1f);
-        settings.SetActive(true);
-        nextRequest = otherAnimators[(int)Menu.Settings];
+        settings.gameObject.SetActive(true);
+        currentOption = settings;
     }
 
     private void ShowCredits()
     {
         Debug.Log("Credits Pressed");
         menuState = MenuState.Transitioning;
-        animator.CrossFade("ShowCredits",0.1f);
+        credits.gameObject.SetActive(true);
+        currentOption = credits;
     }
 
     private void ExitGame()
